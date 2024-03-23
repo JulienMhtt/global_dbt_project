@@ -1,0 +1,189 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "A unified view of customers, combining details from Customer and Person tables. Customers with accounts have full details from the Person table."
+    columns:
+      - name: customer_id_key
+        description: "A unique, incrementally generated identifier for each customer."
+        tests:
+          - unique
+          - not_null
+
+      - name: CustomerID
+        description: "The original customer ID from the Customer table."
+
+      - name: AccountNumber
+        description: "Account number for the customer, if available."
+
+      - name: TerritoryID
+        description: "Identifier for the customer's sales territory."
+
+      - name: FirstName
+        description: "Customer's first name, if available."
+
+      - name: LastName
+        description: "Customer's last name, if available."
+
+      - name: BirthDate
+        description: "Customer's date of birth, if available."
+
+      - name: MaritalStatus
+        description: "Marital status of the customer, if available."
+
+      - name: YearlyIncome
+        description: "Annual income of the customer, if available."
+
+      - name: Gender
+        description: "Gender of the customer, if available."
+
+      - name: Education
+        description: "Education level of the customer, if available."
+
+      - name: Occupation
+        description: "Occupation of the customer, if available."
+
+      - name: HomeOwnerFlag
+        description: "Indicates whether the customer owns a home, if available."
+
+      - name: NumberCarsOwned
+        description: "Number of cars owned by the customer, if available."
+
+      - name: BusinessEntityID
+        description: "A unique identifier for the customer as a business entity, if available."
+
+      - name: PersonID
+        description: "The customer's ID from the Person table, linking to detailed personal information."
+
+
+  - name: dim_territory
+    description: "This model provides a distinct list of sales territories, including region, country, and continent information."
+    columns:
+      - name: territoryid
+        description: "Unique identifier for the sales territory."
+        tests:
+          - unique
+          - not_null
+
+      - name: region
+        description: "Name of the sales region."
+
+      - name: country
+        description: "Country code for the sales territory."
+
+      - name: continent
+        description: "Group or continent the sales territory belongs to."
+
+
+
+  - name: dim_product_category
+    description: "This model provides a distinct list of category product, including category and sub-category information"
+    columns: 
+      - name: product_sub_category_id
+        description: "Unique identifier for the categories"
+        tests:
+          - unique
+          - not_null
+      - name: product_category_id
+        description: "Unique identifier for the categories"
+
+      - name: product_sub_category_name
+        description: "Unique identifier for the categories"
+
+      - name: product_category_name
+        description: "Unique identifier for the categories"
+
+
+  - name: product_details
+    description: "This model enriches product information by joining Product with its subcategories, models, and descriptions, specifically filtered for French ('fr') descriptions."
+    columns:
+      - name: ProductID
+        description: "The unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+
+      - name: ProductSubcategoryID
+        description: "Identifier for the product's subcategory."
+
+
+      - name: ProductNumber
+        description: "number assigned to the product."
+
+
+      - name: product_name
+        description: "The name of the product."
+
+
+      - name: product_model_name
+        description: "The name of the product's model."
+        
+      - name: product_description
+        description: "The description of the product, specifically for the French market."
+
+      - name: product_color
+        description: "The color of the product."
+
+      - name: Size
+        description: "The size of the product."
+
+      - name: cost
+        description: "The standard cost to produce the product."
+
+      - name: price
+        description: "The list price at which the product is sold to customers."
+
+  - name: fact_sales
+    description: A fact table containing sales data
+    columns:
+      - name: sales_order_key
+        description: A surrogate key for the sales order
+        tests:
+          - not_null
+          - unique
+      - name: sales_order_detail_id
+        description: The ID of the sales order detail record
+        tests:
+          - not_null
+      - name: sales_order_id
+        description: The ID of the sales order
+        tests:
+          - not_null
+      - name: order_qty
+        description: The quantity of the product ordered
+
+      - name: product_id
+        description: "The ID of the product."
+        tests:
+          - not_null
+          #- relationships:
+              #to: ref('dim_product')
+              #field: product_id
+
+      - name: unit_price
+        description: The price per unit of the product
+
+      - name: line_total
+        description: The total price for the line item
+
+      - name: territory_id
+        description: "The ID of the sales territory."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_territory')
+              field: territoryid
+         
+      - name: customer_id
+        description: "The ID of the customer who placed the order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
+
+      - name: order_date
+        description: The date the order was placed
+
+
+

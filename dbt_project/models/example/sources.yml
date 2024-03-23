@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: db_dbt_project  # This can be any name that describes the group of tables, e.g., "raw_data".
+    schema: public  # The actual schema name in your PostgreSQL database.
+    tables:
+      - name: Person
+      - name: Customer
+      - name: SalesTerritory
+      - name: ProductSubCategory
+      - name: ProductCategory
+      - name: Product
+      - name: ProductModel
+      - name: ProductModelProductDescriptionCulture
+      - name: ProductDescription
+      - name: SalesOrderDetail
+      - name: SalesOrderHeader

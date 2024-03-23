@@ -1,0 +1,42 @@
+select *
+from sales.fact_sales;
+
+
+SELECT DISTINCT fs.product_id
+FROM sales.fact_sales fs
+LEFT JOIN sales.dim_product dp ON fs.product_id = dp.product_id
+WHERE dp.product_id IS NULL;
+
+SELECT product_id
+FROM sales.fact_sales
+WHERE product_id NOT IN ( select product_id
+							from sales.dim_product);
+
+select *
+from "Product"
+where "ProductID" = '907';
+
+select *
+from "Product"
+where "ProductID" = '907';
+
+select *
+from sales.dim_product
+where product_id = '907';
+
+select *
+from sales.fact_sales
+where product_id = '907';
+
+
+select *
+from "Product" p 
+left join "ProductSubCategory" psc on p."ProductSubcategoryID" = psc."ProductSubcategoryID"
+left join "ProductModel" pm on p."ProductModelID" = pm."ProductModelID"
+left join "ProductModelProductDescriptionCulture" pmpdc on pmpdc."ProductModelID" = pm."ProductModelID"
+left join "ProductDescription" pd on pd."ProductDescriptionID" = pmpdc."ProductDescriptionID"
+where p."ProductID" = '913';
+
+select *
+from "ProductDescription"
+;

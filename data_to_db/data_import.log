@@ -1,0 +1,28 @@
+2024-03-22 20:58:20,177 - INFO - Successfully imported customer
+2024-03-22 20:58:27,668 - INFO - Successfully imported salesorderdetail
+2024-03-22 20:58:27,754 - INFO - Successfully imported productcategory
+2024-03-22 20:58:29,587 - INFO - Successfully imported person
+2024-03-22 20:58:29,677 - INFO - Successfully imported countryregion
+2024-03-22 20:58:29,752 - INFO - Successfully imported salesterritory
+2024-03-22 20:58:29,805 - INFO - Successfully imported productsubcategory
+2024-03-22 20:58:29,949 - INFO - Successfully imported product
+2024-03-22 20:58:30,034 - INFO - Successfully imported productdescription
+2024-03-22 20:58:30,104 - INFO - Successfully imported productmodel
+2024-03-22 20:58:33,945 - INFO - Successfully imported salesorderheader
+2024-03-22 20:58:34,016 - INFO - Successfully imported productmodelproductdescriptionculture
+2024-03-22 20:58:34,017 - INFO - 
+
+2024-03-22 20:58:58,216 - INFO - Skipping customer, already processed.
+2024-03-22 20:58:58,216 - INFO - Skipping salesorderdetail, already processed.
+2024-03-22 20:58:58,216 - INFO - Skipping productcategory, already processed.
+2024-03-22 20:58:58,216 - INFO - Skipping person, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping countryregion, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping salesterritory, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping productsubcategory, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping product, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping productdescription, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping productmodel, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping salesorderheader, already processed.
+2024-03-22 20:58:58,217 - INFO - Skipping productmodelproductdescriptionculture, already processed.
+2024-03-22 20:58:58,217 - INFO - 
+
